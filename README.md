@@ -21,4 +21,4 @@ Compile and build
 $ npm run build
 ```
 
-<img src="https://github.com/romeruk/TaskManager/src/images/task manager.png">
+<img src="https://github.com/romeruk/TaskManager/blob/master/src/images/task%20manager.png">
