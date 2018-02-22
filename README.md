@@ -20,5 +20,4 @@ Compile and build
 ```sh
 $ npm run build
 ```
-
 <img src="https://github.com/romeruk/TaskManager/blob/master/src/images/task%20manager.png">
