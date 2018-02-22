@@ -1,0 +1,252 @@
+@import './scss/base/reset';
+@import './scss/helpers/variables';
+@import './scss/components/buttons';
+@import './scss/helpers/mixins';
+
+body {
+    background: $body-bg; 
+    font-family: 'Work Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+header {
+    padding: 15px 0;
+    margin: 0 0 10px 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: $def-header-color;
+    font-weight: bold;
+    background: $header-bg;
+    font-size: 2em;
+    animation: MoveInDown;
+    animation-duration: 2s;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 15px;
+    background: $def-container-bg;
+    
+    .control-buttons {
+        display: flex;
+        justify-content: center;
+        button {
+            animation: FadeIn;
+            animation-duration: 2s;
+        }
+        button:not(:last-child) {
+            margin-right: 15px;
+        }
+    }
+}
+
+.form-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    animation: MoveInLeft;
+    animation-duration: 2s;
+    margin: 0 0 20px 0;
+    h2 {
+        margin: 0 0 10px 0;
+        font-size: 2em;
+        text-transform: uppercase;
+    }
+    form {
+        width: 70%;
+        .form-group {
+            margin: 0 0 10px 0;
+            #title, #body {
+                font-size: 16px;
+                border: 1px solid $def-inputs-border;
+                width: 100%;
+                font-family: 'Open Sans', sans-serif;
+                padding: 10px 15px;
+            }
+            #body {
+                min-height: 150px;
+            }
+
+            #title:focus, #body:focus {
+                color: #333;
+                outline: none;
+                border: 1px solid $inputs-focus;
+            }
+            button {
+                animation: ScaleOutside;
+                animation-delay: 2s;
+                animation-duration: 2s;
+            }
+             
+            input[type="file"] {
+                display: none;
+            }
+        }
+    }
+}
+
+#cards {
+    display: flex;
+    flex-wrap: wrap;
+    .card-item {
+        width: 33.3333%;
+        padding: 15px;
+        animation: FadeIn;
+        animation-duration: 2s;
+    }
+    .card {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        box-shadow: 0 10px 20px -10px $card-box-shadow;
+        &-img, &-title, &-body {
+            margin: 0 0 10px 0;
+        }
+        &-content, &-content-buttons {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+            word-wrap: break-word;
+        }
+
+        &-img {
+            height: 200px;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        &-title {
+            font-size: 2em;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        &-body {
+            font-size: 1.1em;
+            line-height: 1.2;
+        }
+        &-removed-buttons {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+.alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    animation: MoveInDown;
+    animation-duration: 2s;
+    p {
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bold;
+        padding: 20px;
+        font-size: 1.5em;
+        background: #3cc395;
+    }
+}
+.alert-removed {
+    animation: FadeOut;
+    animation-duration: 2s;
+    animation-delay: 3.5s;
+}
+
+@keyframes FadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+     }
+}
+
+@keyframes MoveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+     100% {
+        opacity: 1;
+        transform: translateX(0);
+     }
+}
+
+@keyframes MoveInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+     100% {
+        opacity: 1;
+        transform: translateY(0);
+     }
+}
+
+@keyframes ScaleOutside {
+    0% {
+        transform: scale(1.1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+     100% {
+        transform: scale(1);
+     }
+}
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@include mobileLAndTablet {
+    #cards {
+        .card-item {
+            width: 50%;
+        }
+    }
+}
+
+@include lessTablet {
+    body {
+        font-size: 12.5px;
+    }
+    .form-container{
+        form {
+            width: 100%;
+        }
+    }
+}
+
+@include lessMobileL {
+    .container {
+        .control-buttons {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            button:not(:last-child) {
+                margin-right: 0;
+            }
+        }
+    }
+    #cards {
+        .card-item {
+            width: 100%;
+        }
+    }
+}
