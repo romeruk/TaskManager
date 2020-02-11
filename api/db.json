@@ -1,17 +1,10 @@
 {
   "Tasks": [
     {
-      "id": "1",
-      "title": "Task 1",
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod Ut enim ad minim veniam",
-      "done": "false",
-      "img_url": "src/images/tree.jpg"
-    },
-    {
       "id": "2",
       "title": "Task 2",
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod Ut enim ad minim veniam",
-      "done": "true",
+      "done": "false",
       "img_url": "src/images/lake.jpg"
     },
     {

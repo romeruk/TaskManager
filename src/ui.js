@@ -1,5 +1,6 @@
 class UI {
-    constructor () {
+    constructor() {
+        this.canShowAlert = true;
         this.cards = document.querySelector('#cards');
         this.titleInput = document.querySelector('#title');
         this.bodyInput = document.querySelector('#body');
@@ -29,7 +30,7 @@ class UI {
         this.cards.innerHTML = output;
     }
 
-    showRemovedTasks (tasks) {
+    showRemovedTasks(tasks) {
         let output = '';
 
         tasks.forEach((task) => {
@@ -51,11 +52,13 @@ class UI {
                 `;
             }
         });
-        
+
         this.cards.innerHTML = output;
     }
 
-    showAlert (message, background) {
+    showAlert(message, background) {
+        if (this.canShowAlert) {
+            this.canShowAlert = false;
             const divAlert = document.createElement('div');
             const pTextAlert = document.createElement('p');
             const body = document.body;
@@ -63,7 +66,7 @@ class UI {
             divAlert.appendChild(pTextAlert);
             divAlert.className = 'alert';
             pTextAlert.className = 'alert-removed';
-            
+
             if (background) {
                 pTextAlert.style.backgroundColor = background;
             }
@@ -73,7 +76,9 @@ class UI {
 
             setTimeout(() => {
                 divAlert.parentNode.removeChild(divAlert);
-            }, 5000);
+                this.canShowAlert = true;
+            }, 2000);
+        }
     }
 }
 
